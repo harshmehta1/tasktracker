@@ -33,7 +33,7 @@ defmodule Tasktracker.Work.Task do
       if hours == "" do
         hh = 0
       else
-        hh = String.to_integer(Map.get(attrs, "h_time_spent"))        
+        hh = String.to_integer(Map.get(attrs, "h_time_spent"))
       end
       mm = String.to_integer(Map.get(attrs, "m_time_spent"))
       time_spent = hh * minInHour + mm

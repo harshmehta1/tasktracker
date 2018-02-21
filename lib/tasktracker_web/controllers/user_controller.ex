@@ -60,7 +60,34 @@ end
 
   def delete(conn, %{"id" => id}) do
     user = Accounts.get_user!(id)
+    adUser = Accounts.get_user_by_email("admin@mehtaharsh.me")
+    tasks = Tasktracker.Work.list_user_tasks(id)
+
+    Enum.map(tasks, fn task ->
+        ts = Map.get(task, :time_spent)
+        hh = round(ts/60)
+        mm = ts - (hh * 60)
+        hh = Integer.to_string(hh)
+        mm = Integer.to_string(mm)
+        # task = Map.replace!(task, :user_id, email)
+        #       |> Map.put(:h_time_spent, hh)
+        #       |> Map.put(:m_time_spent, mm)
+
+        attrs = %{"complete" => Map.get(task, :complete), "desc" => Map.get(task, :desc), "h_time_spent" => hh,
+                  "m_time_spent" => mm, "title" => Map.get(task,:title),
+                  "user_id" => "admin@mehtaharsh.me"}
+
+        og_task = Tasktracker.Work.get_task!(Integer.to_string(Map.get(task, :id)))
+        task = Map.replace!(task, :user, adUser)
+        IO.inspect(task)
+        Tasktracker.Work.update_task(og_task, attrs)
+    end)
     {:ok, _user} = Accounts.delete_user(user)
+    curr_user = get_session(conn, :user_id)
+    u_id = String.to_integer(id)
+    if curr_user == u_id do
+      TasktrackerWeb.SessionController.delete(conn, %{})
+    end
 
     conn
     |> put_flash(:info, "User deleted successfully.")
