@@ -1,4 +1,6 @@
-<h1>Log In</h1>
+<div align="center">
+<h2>Welcome to Task Tracker App</h2><br><br>
+<h3>Log In</h3>
 <!-- session_path(@conn, :create) -->
 <%= form_tag("/session", method: :post) do %>
   <div class="form-group">
@@ -11,3 +13,4 @@
     <%= link "Register", to: user_path(@conn, :new)%>
   </div>
   <% end %>
+</div>
