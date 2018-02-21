@@ -1,0 +1,41 @@
+<%= if @current_user do %>
+  <div class="row">
+    <div class="col">
+      <h4>Create New Task</h4>
+      <%= render TasktrackerWeb.TaskView, "form.html",
+      Map.put(assigns, :action, task_path(@conn, :create)) %>
+    </div>
+  </div>
+<% end %>
+
+<h4>Your Task Feed</h4>
+<%= Enum.map @tasks, fn task -> %>
+<div class="row">
+  <div class="col">
+    <%= if task.complete do %>
+      <div class="card bg-success text-light">
+    <% else %>
+      <div class="card bg-light text-dark">
+    <% end %>
+      <div class="card-body">
+        <!-- <div class="row"> -->
+        <!-- <div class="col-8"> -->
+          <h4 class="card-title"><%= if task.complete do Enum.join(["Completed:",task.title], " ") else task.title end %></h4>
+          <p class="card-text"><%= task.desc %></p>
+          <p>Assigned to <b><%= task.user.name %></b>. Total time spent on Task: <i><%= task.time_spent %></i> minutes.</p>
+        <!-- </div> -->
+        <!-- <div class="col-4"> -->
+          <!-- <a href="#" class="btn btn-success">Mark Complete</a> -->
+          <%= if task.complete do %>
+          <% else %>
+            <!-- <%= link "Mark Complete", to: task_path(@conn, :edit, task), class: "btn btn-success" %> -->
+            <%= link "Edit", to: task_path(@conn, :edit, task), class: "btn btn-secondary" %>
+          <% end %>
+          <%= link "Delete", to: task_path(@conn, :delete, task), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger" %>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div><br>
+<% end %>
+<p>You can add tasks by either clicking on "New Task" or entering the task details in the form on the top</p>
