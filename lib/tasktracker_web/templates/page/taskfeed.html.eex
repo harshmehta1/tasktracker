@@ -1,4 +1,5 @@
 <%= if @current_user do %>
+<div class="top"></div>
   <div class="row">
     <div class="col">
       <h4>Create New Task</h4>
@@ -38,4 +39,7 @@
   </div>
 </div><br>
 <% end %>
-<p>You can add tasks by either clicking on "New Task" or entering the task details in the form on the top</p>
+<div class="end-feed" align="center">
+  <p>You can add tasks by either clicking on "New Task" or entering the task details in the form on the top</p>
+  <a href="#top">Need a ride back up?</a>
+</div>

@@ -1,4 +1,5 @@
-<h4 id="top">All Tasks</h4>
+<div class="top"></div>
+<h4>All Tasks</h4>
 
 <%= Enum.map @tasks, fn task -> %>
 <div class="row">
