@@ -31,8 +31,10 @@ defmodule TasktrackerWeb.UserController do
   end
 
   def edit(conn, %{"id" => id}) do
-    current_user = get_session(conn,:user_id)
-    if id == current_user do
+    current_user = get_session(conn, :user_id)
+    IO.inspect(current_user)
+    us_id = String.to_integer(id)
+    if us_id == current_user do
       user = Accounts.get_user!(id)
       changeset = Accounts.change_user(user)
       render(conn, "edit.html", user: user, changeset: changeset)
