@@ -24,9 +24,9 @@
 
       <td class="text-right">
         <%= if @current_user.email=="admin@mehtaharsh.me" do %>
-        <%= link "Show", to: task_path(@conn, :show, task), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: task_path(@conn, :edit, task), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: task_path(@conn, :delete, task), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+          <%= link "Show", to: task_path(@conn, :show, task), class: "btn btn-default btn-xs" %>
+          <%= link "Edit", to: task_path(@conn, :edit, task), class: "btn btn-default btn-xs" %>
+          <%= link "Delete", to: task_path(@conn, :delete, task), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
         <% end %>
       </td>
     </tr>

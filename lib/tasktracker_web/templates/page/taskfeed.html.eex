@@ -33,7 +33,7 @@
   </div>
 </div><br>
 <% end %>
-<div class="end-feed" align="center">
+<div class="center-this">
   <p>You can add tasks by either clicking on "New Task" or entering the task details in the form on the top</p>
   <!-- <a href="#top">Need a ride back up?</a> -->
 </div>

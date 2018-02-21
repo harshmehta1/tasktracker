@@ -18,7 +18,7 @@
   </div>
 </div><br>
 <% end %>
-<div class="end-alltask" align="center">
+<div class="center-this">
   <p align="center"><i>"That's all folks!" -Porky Pig</i></p>
   <!-- <a href="#top">Need a ride back up?</a> -->
 </div>

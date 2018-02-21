@@ -1,4 +1,4 @@
-<div align="center">
+<div class="center-this">
 <h2>Welcome to Task Tracker App</h2><br><br>
 <h3>Log In</h3>
 <!-- session_path(@conn, :create) -->
