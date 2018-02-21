@@ -17,6 +17,7 @@ Design Choices:
 14. If a user deletes himself (from edit option), he gets logged out of the session.
 15. The Admin has the root privileges of editing/deleting any user or task.
 16. Admin can edit/delete users and tasks using "Edit Users" and "Edit Tasks" buttons respectively.
+17. Admin can log in using email "admin@mehtaharsh.me"
 
 To start your Phoenix server:
 
