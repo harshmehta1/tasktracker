@@ -3,13 +3,13 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Desc</th>
-      <th>User ID</td>
-      <th>Time spent</th>
-      <th>Complete</th>
+      <th width="20%">Title</th>
+      <th width="35%">Desc</th>
+      <th width="5%">User ID</td>
+      <th width="10%">Time spent</th>
+      <th width="5%">Complete</th>
 
-      <th></th>
+      <th width="35%"></th>
     </tr>
   </thead>
   <tbody>
@@ -21,10 +21,13 @@
       <td><%= task.time_spent %></td>
       <td><%= task.complete %></td>
 
+
       <td class="text-right">
-        <span><%= link "Show", to: task_path(@conn, :show, task), class: "btn btn-default btn-xs" %></span>
-        <!-- <span><%= link "Edit", to: task_path(@conn, :edit, task), class: "btn btn-default btn-xs" %></span> -->
-        <!-- <span><%= link "Delete", to: task_path(@conn, :delete, task), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span> -->
+        <%= if @current_user.email=="admin@mehtaharsh.me" do %>
+        <%= link "Show", to: task_path(@conn, :show, task), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: task_path(@conn, :edit, task), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: task_path(@conn, :delete, task), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+        <% end %>
       </td>
     </tr>
 <% end %>

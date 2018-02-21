@@ -69,11 +69,8 @@ end
         mm = ts - (hh * 60)
         hh = Integer.to_string(hh)
         mm = Integer.to_string(mm)
-        # task = Map.replace!(task, :user_id, email)
-        #       |> Map.put(:h_time_spent, hh)
-        #       |> Map.put(:m_time_spent, mm)
-
-        attrs = %{"complete" => Map.get(task, :complete), "desc" => Map.get(task, :desc), "h_time_spent" => hh,
+        attrs = %{"complete" => Map.get(task, :complete),
+                  "desc" => Map.get(task, :desc), "h_time_spent" => hh,
                   "m_time_spent" => mm, "title" => Map.get(task,:title),
                   "user_id" => "admin@mehtaharsh.me"}
 
