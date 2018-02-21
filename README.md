@@ -16,6 +16,7 @@ Design Choices:
 13. When a user is deleted, all his tasks are transfered to the Admin who can choose who to reassign them to.
 14. If a user deletes himself (from edit option), he gets logged out of the session.
 15. The Admin has the root privileges of editing/deleting any user or task.
+16. Admin can edit/delete users and tasks at tasks1.mehtaharsh.me/users/ and tasks1.mehtaharsh.me/tasks/ respectively.
 
 To start your Phoenix server:
 

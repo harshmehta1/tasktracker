@@ -21,10 +21,17 @@
         </div>
         <div class= "col-4 offset-6" align="center">
           <div class="usr-feature">
+            <%= if @current_user.email == "admin@mehtaharsh.me" do %>
+              <%= link "Edit Users", to: user_path(@conn, :index), class: "btn btn-primary" %>
+              <%= link "Edit Tasks", to: task_path(@conn, :index), class: "btn btn-primary" %>
+            <% end %>
             <%= link "New Task", to: task_path(@conn, :new), class: "btn btn-primary" %>
             <%= link "View All Tasks", to: page_path(@conn, :alltasks), class: "btn btn-primary" %>
             <%= link "My Task Feed", to: page_path(@conn, :feed), class: "btn btn-primary" %>
-            <%= link "Edit Profile", to: user_path(@conn, :edit, @current_user), class: "btn btn-warning" %>
+            <%= if @current_user.email == "admin@mehtaharsh.me" do %>
+            <% else %>
+              <%= link "Edit Profile", to: user_path(@conn, :edit, @current_user), class: "btn btn-warning" %>
+            <% end %>
             <br>
           </div>
         </p>

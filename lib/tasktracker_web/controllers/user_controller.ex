@@ -36,8 +36,14 @@ defmodule TasktrackerWeb.UserController do
     us_id = String.to_integer(id)
     if us_id == current_user do
       user = Accounts.get_user!(id)
-      changeset = Accounts.change_user(user)
-      render(conn, "edit.html", user: user, changeset: changeset)
+      if user.email == "admin@mehtaharsh.me" do
+        conn
+        |> put_flash(:error, "Cannot Edit Admin!")
+        |> redirect(to: page_path(conn, :index))
+      else
+        changeset = Accounts.change_user(user)
+        render(conn, "edit.html", user: user, changeset: changeset)
+      end
     else
       conn
       |> put_flash(:error, "Not allowed to edit other users")
